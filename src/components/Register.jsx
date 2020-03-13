@@ -19,9 +19,10 @@ class Register extends Component {
         let data = { username, email, pass }
 
         // Cek Data dengan cara GET
-        axios.get(linkGet).then((res) => {
+        axios.get(linkGet,data).then((res) => {
+        
             // Cek Duplikat data
-            // res.data = [{}, {}, {}]
+            res.data = [{}, {}, {}]
             let sudahAdaUsername = res.data.filter((user) => {
                 return user.username == username;
             })
