@@ -17,6 +17,18 @@
       "email": "Dummy_03@dummy.com",
       "pass": "dummy03",
       "id": 3
+    },
+    {
+      "username": "Dummy04",
+      "email": "dummy01@gmail.com",
+      "pass": "satuduatiga",
+      "id": 4
+    },
+    {
+      "username": "Dummy05",
+      "email": "dummy01@gmail.com",
+      "pass": "123456789",
+      "id": 5
     }
   ]
 }

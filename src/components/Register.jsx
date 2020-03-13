@@ -16,10 +16,10 @@ class Register extends Component {
         // GET, POST, PUT, PATCH
         let linkPost = 'http://localhost:2020/users';
         let linkGet = 'http://localhost:2020/users';
-        let data = {username, email, pass}
+        let data = { username, email, pass }
 
         // Cek Data dengan cara GET
-        axios.get(linkGet).then((res)=>{
+        axios.get(linkGet).then((res) => {
             // Cek Duplikat data
             // res.data = [{}, {}, {}]
             let sudahAdaUsername = res.data.filter((user) => {
@@ -28,7 +28,7 @@ class Register extends Component {
 
             // console.log(sudahAdaUsername);
             if (sudahAdaUsername.length > 0) {
-               return alert(`Username ${username} Sudah Terpakai`);
+                return alert(`Username ${username} Sudah Terpakai`);
             }
 
 
@@ -38,17 +38,15 @@ class Register extends Component {
             // console.log(sudahAdaEmail);
             if (sudahAdaEmail.length > 0) {
                 return alert(`Email ${email} Sudah Terpakai`);
-             }
-            
-            
+            }
+
+            // POST
+            axios.post(linkPost, data).then((res) => {
+                alert('Registrasi Berhasil');
+            })
         })
 
-        // POST
-        axios.post(linkPost, data).then((res) => {
-            alert ('Registrasi Berhasil');
-        })
-        
-        
+
     }
 
     // GET
@@ -76,17 +74,17 @@ class Register extends Component {
                                 <div className="card-title">
                                     <h4>Username</h4>
                                 </div>
-                                <input ref={(input) => {this.username = input }} type="text" className="form-control" />
+                                <input ref={(input) => { this.username = input }} type="text" className="form-control" />
 
                                 <div className="card-title" >
                                     <h4>Email</h4>
                                 </div>
-                                <input ref={(input) => {this.email = input }} type="email" className="form-control" />
+                                <input ref={(input) => { this.email = input }} type="email" className="form-control" />
 
                                 <div className="card-title">
                                     <h4>Password</h4>
                                 </div>
-                                <input ref={(input) => {this.password = input }} type="password" className="form-control" />
+                                <input ref={(input) => { this.password = input }} type="password" className="form-control" />
                             </form>
 
                             <button className="btn btn-success btn-block" onClick={(this.onButtonClick)} >Register</button>
