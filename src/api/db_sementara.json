@@ -29,6 +29,18 @@
       "email": "dummy01@gmail.com",
       "pass": "123456789",
       "id": 5
+    },
+    {
+      "username": "Dummy01",
+      "email": "dumm_01@gmail.com",
+      "pass": "dummy01",
+      "id": 6
+    },
+    {
+      "username": "Dummy01",
+      "email": "dumm_01@gmail.com",
+      "pass": "dummy01",
+      "id": 7
     }
   ]
 }

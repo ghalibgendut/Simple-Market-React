@@ -18,16 +18,24 @@ class Register extends Component {
         let linkGet = 'http://localhost:2020/users';
         let data = { username, email, pass }
 
+        // console.log(data);
+        
+
         // Cek Data dengan cara GET
-        axios.get(linkGet,data).then((res) => {
+        axios.get(linkGet,data).then((res) => { 
+            
+            // console.log(res.data);
+        
         
             // Cek Duplikat data
-            res.data = [{}, {}, {}]
+            // res.data = [{}, {}, {}]
+            // console.log(res.data);
+            
             let sudahAdaUsername = res.data.filter((user) => {
                 return user.username == username;
             })
 
-            // console.log(sudahAdaUsername);
+            console.log(sudahAdaUsername);
             if (sudahAdaUsername.length > 0) {
                 return alert(`Username ${username} Sudah Terpakai`);
             }
@@ -42,7 +50,8 @@ class Register extends Component {
             }
 
             // POST
-            axios.post(linkPost, data).then((res) => {
+            axios.post(linkPost, data).then((res) => { 
+            
                 alert('Registrasi Berhasil');
             })
         })
