@@ -35,7 +35,7 @@ class Register extends Component {
                 return user.username == username;
             })
 
-            console.log(sudahAdaUsername);
+            // console.log(sudahAdaUsername);
             if (sudahAdaUsername.length > 0) {
                 return alert(`Username ${username} Sudah Terpakai`);
             }
