@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {} from '../actions/index_actions';
 
 class Login extends Component {
 
@@ -15,10 +16,15 @@ class Login extends Component {
 
         axios.get(linkGet, {params: data}).then((res)=> {
             if (res.data.length > 0) {
+                // user ditemukan : simpan info user ke redux
                 console.log('User Ada');
+
+
+                
             }
             else{
-                console.log('User gk ada');
+                // user tidak ditemukan : memuncuklan notif
+                alert(`username atau password salah`)
                 
             }
         })
