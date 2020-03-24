@@ -11,13 +11,13 @@ let init = {
     username: ""
 }
 
-let action = {
-    type: 'LOGIN_SUCCESS',
-    payload: {
-        id: "1",
-        username: 'ghalib'
-    }
-}
+// let action = {
+//     type: 'LOGIN_SUCCESS',
+//     payload: {
+//         id: "1",
+//         username: 'ghalib'
+//     }
+// }
 
 
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {} from '../actions/index_actions';
+import {onLoginUser} from '../actions/index_actions';
+import { connect } from 'react-redux';
 
 class Login extends Component {
 
@@ -16,8 +17,10 @@ class Login extends Component {
 
         axios.get(linkGet, {params: data}).then((res)=> {
             if (res.data.length > 0) {
+                // res.data[0] = {id: 1, username: 'Dummy01' pass:'dummy01'}
                 // user ditemukan : simpan info user ke redux
-                console.log('User Ada');
+                console.log(res.data);
+                this.props.onLoginUser(res.data[0])
 
 
                 
@@ -71,4 +74,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default connect(null, {onLoginUser})(Login)
