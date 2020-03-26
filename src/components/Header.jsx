@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import {
     Collapse,
     Navbar,
@@ -20,10 +20,49 @@ import {
 class Header extends Component {
 
     state = {
-        isOpen : false
+        isOpen: false
     }
 
-    toggle = () => this.setState({isOpen : !this.state.isOpen});
+    toggle = () => this.setState({ isOpen: !this.state.isOpen });
+
+    // Menentukan apa yang harus ditampilkan di header, (Register dan login / heloo, username)
+    renderNav = () => {
+        if (this.props.uname == "") {
+            // Jika user tidak login
+            return (
+                <Nav className="ml-auto" navbar>
+                    <NavItem>
+                        <NavLink tag={Link} to="/register">Register</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink tag={Link} to="/login">Login</NavLink>
+                    </NavItem>
+                </Nav>
+            )
+        }
+        //  Jika User login
+        return (
+            <Nav className="ml-auto" navbar>
+                <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav caret>
+                        Hello, {this.props.uname}
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                        <DropdownItem>
+                            Option 1
+                    </DropdownItem>
+                        <DropdownItem>
+                            Option 2
+                    </DropdownItem>
+                        <DropdownItem divider />
+                        <DropdownItem>
+                            Reset
+                    </DropdownItem>
+                    </DropdownMenu>
+                </UncontrolledDropdown>
+            </Nav>
+        )
+    }
 
 
     render() {
@@ -34,44 +73,17 @@ class Header extends Component {
                     <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink tag={Link} to="/register">Register</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink tag={Link} to="/login">Login</NavLink>
-                            </NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    Hello, {this.props.uname}
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        Reset
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
-
-
-
-                        </Nav>
-
+                        {this.renderNav()}
                     </Collapse>
                 </Navbar>
             </div>
         )
+
     }
 }
 
 let mapStateToProps = (state) => {
-    return{
+    return {
         uname: state.auth.username
     }
 }
