@@ -11,3 +11,13 @@ export let onLoginUser = (user) => {
         }
     }
 }
+
+export let onLogoutUser = () => {
+    return {
+        type: 'LOGOUT_SUCCESS',
+        // payload: {
+        //     id: "",
+        //     username: ""
+        // }
+    }
+}

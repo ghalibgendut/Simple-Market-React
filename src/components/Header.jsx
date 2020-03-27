@@ -16,6 +16,7 @@ import {
     NavbarText,
     Form
 } from 'reactstrap';
+import {onLogoutUser} from '../actions/index_actions'
 
 class Header extends Component {
 
@@ -24,6 +25,12 @@ class Header extends Component {
     }
 
     toggle = () => this.setState({ isOpen: !this.state.isOpen });
+
+    // onLogout = () => {
+    //     this.props.onLogoutUser();
+    //     this.renderNav();
+
+    // };
 
     // Menentukan apa yang harus ditampilkan di header, (Register dan login / heloo, username)
     renderNav = () => {
@@ -55,9 +62,9 @@ class Header extends Component {
                             Option 2
                     </DropdownItem>
                         <DropdownItem divider />
-                        <DropdownItem>
-                            Reset
-                    </DropdownItem>
+                        <DropdownItem onClick = {this.props.onLogoutUser}>
+                            Logout
+                        </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledDropdown>
             </Nav>
@@ -89,4 +96,4 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps, {onLogoutUser})(Header)

@@ -47,7 +47,7 @@ export default (state = init, action) => {
             
             break;
         case 'LOGOUT_SUCCESS':
-
+            return {...state, id: "", username: ""}
             break;
     
         default:
