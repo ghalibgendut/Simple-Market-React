@@ -9,23 +9,24 @@ class ManageProduct extends Component {
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         axios.get(
             'http://localhost:2020/products'
-        ).then((res)=>{
-            this.setState({products: res.data})
+        ).then((res) => {
+            this.setState({ products: res.data })
+
         })
     }
 
 
 
 
-    renderList = () => {
-        return this.state.products.map((produk)=>{
+    renderTabelProduk = () => {
+        return this.state.products.map((produk) => {
             // console.log(produk.id);
             return (
                 <tr>
-                     <td>
+                    <td>
                         {produk.id}
                     </td>
                     <td>
@@ -38,18 +39,23 @@ class ManageProduct extends Component {
                         {produk.harga_produk}
                     </td>
                     <td>
-                        <img className="img-thumbnail" src={produk.src} alt="Gundam" height="100" width="100"/>
+                        <img className="img-thumbnail" src={produk.src} alt="Gundam" height="100" width="100" />
                     </td>
                     <td>
-                        <button className="btn btn-outline-primary my-2 mx-2">Edit</button>
+                        <button className="btn btn-outline-primary mx-2 my-5">Edit</button>
                         <button className="btn btn-outline-danger">Cancel</button>
                     </td>
                 </tr>
             )
-    
-        })
 
-    }   
+        })
+        // return res;
+
+    }
+
+    renderTambahProduk = () => {
+
+    }
 
 
 
@@ -70,12 +76,24 @@ class ManageProduct extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                            {this.renderList()}
-
+                        {this.renderTabelProduk()}
                     </tbody>
                 </table>
 
                 {/* Input Product */}
+                <div className="container-fluid border-top input-group">
+                    <h2 className="text-left display-4 mx-2 my-2">Tambah Produk</h2>
+
+                    <table className="table table-bordered">
+                        <tr>
+                            <td><input className="form-control" type="text" placeholder="Nama Barang" id="name" /></td>
+                            <td><input className="form-control" type="text" placeholder="Deskripsi barang" id="deskripsi" /></td>
+                            <td><input className="form-control" type="number" placeholder="Harga Barang" id="harga" /></td>
+                            <td><button className="btn btn-outline-success btn-block"> Tambah </button></td>
+                        </tr>
+                    </table>
+
+                </div>
             </div>
         )
     }
