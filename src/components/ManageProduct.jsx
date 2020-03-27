@@ -21,9 +21,33 @@ class ManageProduct extends Component {
 
 
     renderList = () => {
-        return this.state.products.map(
-            
-        )
+        return this.state.products.map((produk)=>{
+            // console.log(produk.id);
+            return (
+                <tr>
+                     <td>
+                        {produk.id}
+                    </td>
+                    <td>
+                        {produk.nama_produk}
+                    </td>
+                    <td>
+                        {produk.deskrpsi_produk}
+                    </td>
+                    <td>
+                        {produk.harga_produk}
+                    </td>
+                    <td>
+                        <img className="img-thumbnail" src={produk.src} alt="Gundam" height="100" width="100"/>
+                    </td>
+                    <td>
+                        <button className="btn btn-outline-primary my-2 mx-2">Edit</button>
+                        <button className="btn btn-outline-danger">Cancel</button>
+                    </td>
+                </tr>
+            )
+    
+        })
 
     }   
 
@@ -34,7 +58,7 @@ class ManageProduct extends Component {
             <div className="container">
                 {/* List Products */}
                 <h1 className="text-center display-3 my-2">Manage Product</h1>
-                <table class="table table-hover text-center mb-5">
+                <table className="table table-hover text-center mb-5">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -46,9 +70,8 @@ class ManageProduct extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
                             {this.renderList()}
-                        </tr>
+
                     </tbody>
                 </table>
 
