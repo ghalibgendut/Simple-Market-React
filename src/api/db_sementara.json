@@ -42,5 +42,43 @@
       "pass": "dummy01",
       "id": 7
     }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "nama_produk": "Gundam 1",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": 150000,
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
+    },
+    {
+      "id": 2,
+      "nama_produk": "Gundam 2",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": 500000,
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
+    },
+    {
+      "id": 3,
+      "nama_produk": "Gundam 3",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": 250000,
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
+    },
+    {
+      "id": 4,
+      "nama_produk": "Gundam 4",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": 750000,
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
+    },
+    {
+      "id": 5,
+      "nama_produk": "Gundam 5",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": 850000,
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
+    }
+
   ]
 }
