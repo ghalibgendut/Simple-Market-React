@@ -19,7 +19,34 @@ class ManageProduct extends Component {
     }
 
 
+    tambahProduk = () => {
+         let _nama_produk = this.nama_produk.value;
+         let _deskripsi_produk = this.deskrpsi_produk.value;
+         let _harga_produk = this.harga_produk.value;
+         let _gambar_produk = "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg";
 
+         let linkPost = 'http://localhost:2020/products';
+         let data = {
+                        nama_produk: _nama_produk, 
+                        deskrpsi_produk: _deskripsi_produk,
+                        harga_produk: _harga_produk,
+                        src: _gambar_produk
+                    }
+        // cek data terisi atau tidak
+        // console.log(data);
+
+        // cek dengan get apakah data terkirim atau tidak 
+        axios.post(linkPost,data).then((res)=> {
+            console.log(res);
+            
+        })
+        
+        
+
+
+
+
+    }
 
     renderTabelProduk = () => {
         return this.state.products.map((produk) => {
@@ -53,10 +80,6 @@ class ManageProduct extends Component {
 
     }
 
-    renderTambahProduk = () => {
-
-    }
-
 
 
     render() {
@@ -86,10 +109,10 @@ class ManageProduct extends Component {
 
                     <table className="table table-bordered">
                         <tr>
-                            <td><input className="form-control" type="text" placeholder="Nama Barang" id="name" /></td>
-                            <td><input className="form-control" type="text" placeholder="Deskripsi barang" id="deskripsi" /></td>
-                            <td><input className="form-control" type="number" placeholder="Harga Barang" id="harga" /></td>
-                            <td><button className="btn btn-outline-success btn-block"> Tambah </button></td>
+                            <td><input ref={(input) => { this.nama_produk = input }} className="form-control" type="text" placeholder="Nama Barang" id="name" /></td>
+                            <td><input ref={(input) => { this.deskrpsi_produk = input }} className="form-control" type="text" placeholder="Deskripsi barang" id="deskripsi" /></td>
+                            <td><input ref={(input) => { this.harga_produk = input }} className="form-control" type="number" placeholder="Harga Barang" id="harga" /></td>
+                            <td><button className="btn btn-outline-success btn-block" onClick={(this.tambahProduk)}> Tambah </button></td>
                         </tr>
                     </table>
 

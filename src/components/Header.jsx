@@ -50,6 +50,9 @@ class Header extends Component {
         //  Jika User login
         return (
             <Nav className="ml-auto" navbar>
+                <NavItem>
+                    <NavLink tag={Link} to="/ManageProduk">Manage Product</NavLink>
+                </NavItem>
                 <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
                         Hello, {this.props.uname}

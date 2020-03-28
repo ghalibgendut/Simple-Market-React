@@ -78,7 +78,13 @@
       "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
       "harga_produk": 850000,
       "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
+    },
+    {
+      "nama_produk": "Gundam 6",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "750000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 6
     }
-
   ]
 }
