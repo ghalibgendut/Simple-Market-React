@@ -35,8 +35,9 @@ class ManageProduct extends Component {
         // cek data terisi atau tidak
         // console.log(data);
 
-        // cek dengan get apakah data terkirim atau tidak 
+        // Lakukan post untuk mengirim data
         axios.post(linkPost,data).then((res)=> {
+            // cek dengan POST apakah data terkirim atau tidak 
             console.log(res);
             
         })
@@ -50,7 +51,6 @@ class ManageProduct extends Component {
 
     renderTabelProduk = () => {
         return this.state.products.map((produk) => {
-            // console.log(produk.id);
             return (
                 <tr>
                     <td>
