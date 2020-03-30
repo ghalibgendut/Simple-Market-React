@@ -88,7 +88,6 @@ class ManageProduct extends Component {
             )
 
         })
-        // return res;
 
     }
 
