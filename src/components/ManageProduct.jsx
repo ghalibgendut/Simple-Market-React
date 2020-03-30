@@ -20,18 +20,18 @@ class ManageProduct extends Component {
 
 
     tambahProduk = () => {
-         let _nama_produk = this.nama_produk.value;
-         let _deskripsi_produk = this.deskrpsi_produk.value;
-         let _harga_produk = this.harga_produk.value;
-         let _gambar_produk = "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg";
+        let _nama_produk = this.nama_produk.value;
+        let _deskripsi_produk = this.deskrpsi_produk.value;
+        let _harga_produk = this.harga_produk.value;
+        let _gambar_produk = "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg";
 
-         let linkPost = 'http://localhost:2020/products';
-         let data = {
-                        nama_produk: _nama_produk, 
-                        deskrpsi_produk: _deskripsi_produk,
-                        harga_produk: _harga_produk,
-                        src: _gambar_produk
-                    }
+        let linkPost = 'http://localhost:2020/products';
+        let data = {
+                    nama_produk: _nama_produk, 
+                    deskrpsi_produk: _deskripsi_produk,
+                    harga_produk: _harga_produk,
+                    src: _gambar_produk
+                }
         // cek data terisi atau tidak
         // console.log(data);
 
@@ -39,8 +39,17 @@ class ManageProduct extends Component {
         axios.post(linkPost,data).then((res)=> {
             // cek dengan POST apakah data terkirim atau tidak 
             console.log(res);
-            
+            alert("Penambahan data berhasil");
+
+            axios.get(
+                'http://localhost:2020/products'
+            ).then((res) => {
+                this.setState({ products: res.data })
+            })
+
         })
+        
+        
         
         
 
@@ -53,24 +62,16 @@ class ManageProduct extends Component {
         return this.state.products.map((produk) => {
             return (
                 <tr>
+                    <td>{produk.id}</td>
+                    <td>{produk.nama_produk}</td>
+                    <td>{produk.deskrpsi_produk}</td>
+                    <td>{produk.harga_produk}</td>
                     <td>
-                        {produk.id}
-                    </td>
-                    <td>
-                        {produk.nama_produk}
-                    </td>
-                    <td>
-                        {produk.deskrpsi_produk}
-                    </td>
-                    <td>
-                        {produk.harga_produk}
-                    </td>
-                    <td>
-                        <img className="img-thumbnail" src={produk.src} alt="Gundam" height="100" width="100" />
+                        <img className="img-thumbnail list" src={produk.src} alt="Gundam" />
                     </td>
                     <td>
                         <button className="btn btn-outline-primary mx-2 my-5">Edit</button>
-                        <button className="btn btn-outline-danger">Cancel</button>
+                        <button className="btn btn-outline-danger">Delete</button>
                     </td>
                 </tr>
             )

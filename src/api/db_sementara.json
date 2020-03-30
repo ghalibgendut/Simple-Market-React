@@ -85,6 +85,104 @@
       "harga_produk": "750000",
       "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
       "id": 6
+    },
+    {
+      "nama_produk": "Gundam 7",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "650000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 7
+    },
+    {
+      "nama_produk": "Gundam 8",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "500000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 8
+    },
+    {
+      "nama_produk": "Gundam 9",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "300000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 9
+    },
+    {
+      "nama_produk": "Gundam 10",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "650000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 10
+    },
+    {
+      "nama_produk": "Gundam 11",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "900000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 11
+    },
+    {
+      "nama_produk": "Gundam 12",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "250000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 12
+    },
+    {
+      "nama_produk": "Gundam 13",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "350000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 13
+    },
+    {
+      "nama_produk": "Gundam 14",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "450000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 14
+    },
+    {
+      "nama_produk": "Gundam 15",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "500000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 15
+    },
+    {
+      "nama_produk": "Gundam 16",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "250000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 16
+    },
+    {
+      "nama_produk": "Gundam 17",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "300000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 17
+    },
+    {
+      "nama_produk": "Gundam 18",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "250000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 18
+    },
+    {
+      "nama_produk": "Gundam 19",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "350000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 19
+    },
+    {
+      "nama_produk": "Gundam 20",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "harga_produk": "450000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 20
     }
   ]
 }
