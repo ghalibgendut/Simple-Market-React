@@ -183,6 +183,13 @@
       "harga_produk": "450000",
       "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
       "id": 20
+    },
+    {
+      "nama_produk": "Gundam 21",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.\t",
+      "harga_produk": "550000",
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 21
     }
   ]
 }

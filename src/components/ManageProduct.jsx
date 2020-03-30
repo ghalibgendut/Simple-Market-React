@@ -10,6 +10,16 @@ class ManageProduct extends Component {
 
 
     componentDidMount() {
+        this.ambilData();
+        // axios.get(
+        //     'http://localhost:2020/products'
+        // ).then((res) => {
+        //     this.setState({ products: res.data })
+
+        // })
+    }
+
+    ambilData = () => {
         axios.get(
             'http://localhost:2020/products'
         ).then((res) => {
@@ -41,11 +51,12 @@ class ManageProduct extends Component {
             console.log(res);
             alert("Penambahan data berhasil");
 
-            axios.get(
-                'http://localhost:2020/products'
-            ).then((res) => {
-                this.setState({ products: res.data })
-            })
+            this.ambilData();
+            // axios.get(
+            //     'http://localhost:2020/products'
+            // ).then((res) => {
+            //     this.setState({ products: res.data })
+            // })
 
         })
         
