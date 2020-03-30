@@ -59,14 +59,13 @@ class ManageProduct extends Component {
             // })
 
         })
-        
-        
-        
-        
 
+    }
 
-
-
+    hapusProduk = (id) => {
+        console.log(`ID Barang ke - ${id}`);
+        axios.delete(`http://localhost:2020/products/${id}`).then((res)=>{this.ambilData()});
+        
     }
 
     renderTabelProduk = () => {
@@ -82,7 +81,9 @@ class ManageProduct extends Component {
                     </td>
                     <td>
                         <button className="btn btn-outline-primary mx-2 my-5">Edit</button>
-                        <button className="btn btn-outline-danger">Delete</button>
+                        {/* Cara mengambil data apabila ada function yang ada parameter, apabila dimasukan,
+                         ke onClick maka harus dimasukan ke function anonymous */}
+                        <button onClick={ () => {this.hapusProduk(produk.id)}} className="btn btn-outline-danger">Delete</button>
                     </td>
                 </tr>
             )
