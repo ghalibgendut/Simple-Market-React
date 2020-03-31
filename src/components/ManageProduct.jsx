@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 class ManageProduct extends Component {
 
     state = {
-        products: []
+        products: [],
+        modalEdit : false
     }
 
 
@@ -37,16 +39,16 @@ class ManageProduct extends Component {
 
         let linkPost = 'http://localhost:2020/products';
         let data = {
-                    nama_produk: _nama_produk, 
-                    deskrpsi_produk: _deskripsi_produk,
-                    harga_produk: _harga_produk,
-                    src: _gambar_produk
-                }
+            nama_produk: _nama_produk,
+            deskrpsi_produk: _deskripsi_produk,
+            harga_produk: _harga_produk,
+            src: _gambar_produk
+        }
         // cek data terisi atau tidak
         // console.log(data);
 
         // Lakukan post untuk mengirim data
-        axios.post(linkPost,data).then((res)=> {
+        axios.post(linkPost, data).then((res) => {
             // cek dengan POST apakah data terkirim atau tidak 
             console.log(res);
             alert("Penambahan data berhasil");
@@ -64,26 +66,54 @@ class ManageProduct extends Component {
 
     hapusProduk = (id) => {
         console.log(`ID Barang ke - ${id}`);
-        axios.delete(`http://localhost:2020/products/${id}`).then((res)=>{this.ambilData()});
-        
+        axios.delete(`http://localhost:2020/products/${id}`).then((res) => { this.ambilData() });
+
     }
+
+    editProdukToggle = (id) => {
+        // Cek id ter ambil atau tidak
+        // console.log(`ID barang ke - ${id}`);
+        axios.get(`http://localhost:2020/products/${id}`).then((res) => {
+            console.log(res.data);
+            this.setState({modalEdit:true});
+        });
+
+    }
+
+    // Untuk apabila user mengklik sembarang modal akan menghilang
+    // modalHilang = () => {
+    //     this.setState({editModal: false});
+    // }
+
+    // Simpan Data
+
+
+
+    // Cancel
+    batalEditToggle = () => {
+        this.setState({modalEdit : false})
+    }
+
+
+
 
     renderTabelProduk = () => {
         return this.state.products.map((produk) => {
+            produk.harga_produk = produk.harga_produk.toLocaleString('id');
             return (
                 <tr>
                     <td>{produk.id}</td>
                     <td>{produk.nama_produk}</td>
                     <td>{produk.deskrpsi_produk}</td>
-                    <td>{produk.harga_produk}</td>
+                    <td>RP.{produk.harga_produk}</td>
                     <td>
                         <img className="img-thumbnail list" src={produk.src} alt="Gundam" />
                     </td>
                     <td>
-                        <button className="btn btn-outline-primary mx-2 my-5">Edit</button>
+                        <button onClick={() => { this.editProdukToggle(produk.id) }} className="btn btn-outline-primary mx-2 my-5">Edit</button>
                         {/* Cara mengambil data apabila ada function yang ada parameter, apabila dimasukan,
                          ke onClick maka harus dimasukan ke function anonymous */}
-                        <button onClick={ () => {this.hapusProduk(produk.id)}} className="btn btn-outline-danger">Delete</button>
+                        <button onClick={() => { this.hapusProduk(produk.id) }} className="btn btn-outline-danger">Delete</button>
                     </td>
                 </tr>
             )
@@ -129,6 +159,22 @@ class ManageProduct extends Component {
                     </table>
 
                 </div>
+
+                {/* Modal Edit */}
+                {/* toggle = {this.modalHilang} apabila ingin mengklik sembarang modal hilang */}
+                <Modal isOpen={this.state.modalEdit}>
+                    <ModalHeader>Edit Produk</ModalHeader>
+                    <ModalBody>
+                        Nama Produk : <input className="form-control" type="text" ref={(input) => {this.editNamaProduk = input}} />
+                        Deskripsi Produk : <input className="form-control" type="text" ref={(input) => {this.editDeskripsiProduk = input}} />
+                        Harga Produk : <input className="form-control" type="text" ref={(input) => {this.editHargaProduk = input}} />
+                     </ModalBody>
+                    <ModalFooter>
+                        <Button outline color="success">Simpan</Button>
+                        <Button outline color="danger" onClick = {(this.batalEditToggle)}>Cancel</Button>
+                    </ModalFooter>
+                </Modal>
+
             </div>
         )
     }
