@@ -7,6 +7,7 @@ class ManageProduct extends Component {
 
     state = {
         products: [],
+        editProducts: {},
         modalEdit : false
     }
 
@@ -25,7 +26,7 @@ class ManageProduct extends Component {
         axios.get(
             'http://localhost:2020/products'
         ).then((res) => {
-            this.setState({ products: res.data })
+            this.setState({ products: res.data , modalEdit: false})
 
         })
     }
@@ -34,7 +35,7 @@ class ManageProduct extends Component {
     tambahProduk = () => {
         let _nama_produk = this.nama_produk.value;
         let _deskripsi_produk = this.deskrpsi_produk.value;
-        let _harga_produk = this.harga_produk.value;
+        let _harga_produk = parseInt(this.harga_produk.value);
         let _gambar_produk = "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg";
 
         let linkPost = 'http://localhost:2020/products';
@@ -50,7 +51,7 @@ class ManageProduct extends Component {
         // Lakukan post untuk mengirim data
         axios.post(linkPost, data).then((res) => {
             // cek dengan POST apakah data terkirim atau tidak 
-            console.log(res);
+            // console.log(res);
             alert("Penambahan data berhasil");
 
             this.ambilData();
@@ -74,8 +75,8 @@ class ManageProduct extends Component {
         // Cek id ter ambil atau tidak
         // console.log(`ID barang ke - ${id}`);
         axios.get(`http://localhost:2020/products/${id}`).then((res) => {
-            console.log(res.data);
-            this.setState({modalEdit:true});
+            // console.log(res.data);
+            this.setState({modalEdit:true, editProducts: res.data});
         });
 
     }
@@ -85,8 +86,29 @@ class ManageProduct extends Component {
     //     this.setState({editModal: false});
     // }
 
-    // Simpan Data
 
+    // Simpan Data
+    simpanEditProduk = () => {
+        let _editNamaProduk = this.editNamaProduk.value ? this.editNamaProduk.value : this.state.editProducts.nama_produk;
+        let _editDeskripsiProduk = this.editDeskripsiProduk.value ? this.editDeskripsiProduk.value : this.state.editProducts.deskrpsi_produk;
+        let _editHargaProduk = parseInt(this.editHargaProduk.value) ? parseInt(this.editHargaProduk.value) : this.state.editProducts.harga_produk;
+        let _editGambarProduk = "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg";
+
+        // let _editGambarProduk = "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg";
+        
+
+        let linkEdit = `http://localhost:2020/products/${this.state.editProducts.id}`;
+        let data = {
+            nama_produk: _editNamaProduk,
+            deskrpsi_produk: _editDeskripsiProduk,
+            harga_produk: _editHargaProduk,
+            src: _editGambarProduk
+        }
+        // Edit Data
+        axios.patch(linkEdit, data).then((res)=>{
+            this.ambilData()
+        });
+    }
 
 
     // Cancel
@@ -105,7 +127,7 @@ class ManageProduct extends Component {
                     <td>{produk.id}</td>
                     <td>{produk.nama_produk}</td>
                     <td>{produk.deskrpsi_produk}</td>
-                    <td>RP.{produk.harga_produk}</td>
+                    <td>RP. {produk.harga_produk}</td>
                     <td>
                         <img className="img-thumbnail list" src={produk.src} alt="Gundam" />
                     </td>
@@ -153,7 +175,7 @@ class ManageProduct extends Component {
                         <tr>
                             <td><input ref={(input) => { this.nama_produk = input }} className="form-control" type="text" placeholder="Nama Barang" id="name" /></td>
                             <td><input ref={(input) => { this.deskrpsi_produk = input }} className="form-control" type="text" placeholder="Deskripsi barang" id="deskripsi" /></td>
-                            <td><input ref={(input) => { this.harga_produk = input }} className="form-control" type="number" placeholder="Harga Barang" id="harga" /></td>
+                            <td><input ref={(input) => { this.harga_produk = input }} className="form-control" type="text" placeholder="Harga Barang" id="harga" /></td>
                             <td><button className="btn btn-outline-success btn-block" onClick={(this.tambahProduk)}> Tambah </button></td>
                         </tr>
                     </table>
@@ -165,12 +187,12 @@ class ManageProduct extends Component {
                 <Modal isOpen={this.state.modalEdit}>
                     <ModalHeader>Edit Produk</ModalHeader>
                     <ModalBody>
-                        Nama Produk : <input className="form-control" type="text" ref={(input) => {this.editNamaProduk = input}} />
-                        Deskripsi Produk : <input className="form-control" type="text" ref={(input) => {this.editDeskripsiProduk = input}} />
-                        Harga Produk : <input className="form-control" type="text" ref={(input) => {this.editHargaProduk = input}} />
+                        Nama Produk : <input className="form-control" type="text" ref={(input) => {this.editNamaProduk = input}} placeholder={this.state.editProducts.nama_produk} />
+                        Deskripsi Produk : <input className="form-control" type="text" ref={(input) => {this.editDeskripsiProduk = input}}  placeholder={this.state.editProducts.deskrpsi_produk}/>
+                        Harga Produk : <input className="form-control" type="text" ref={(input) => {this.editHargaProduk = input}}  placeholder={this.state.editProducts.harga_produk}/>
                      </ModalBody>
                     <ModalFooter>
-                        <Button outline color="success">Simpan</Button>
+                        <Button outline color="success" onClick = {(this.simpanEditProduk)}>Simpan</Button>
                         <Button outline color="danger" onClick = {(this.batalEditToggle)}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
