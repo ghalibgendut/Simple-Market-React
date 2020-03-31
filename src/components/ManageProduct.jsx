@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+// Import Component Modal Edit
+import ModalEdit from './ModalEdit';
 
 
 class ManageProduct extends Component {
@@ -88,27 +91,27 @@ class ManageProduct extends Component {
 
 
     // Simpan Data
-    simpanEditProduk = () => {
-        let _editNamaProduk = this.editNamaProduk.value ? this.editNamaProduk.value : this.state.editProducts.nama_produk;
-        let _editDeskripsiProduk = this.editDeskripsiProduk.value ? this.editDeskripsiProduk.value : this.state.editProducts.deskrpsi_produk;
-        let _editHargaProduk = parseInt(this.editHargaProduk.value) ? parseInt(this.editHargaProduk.value) : this.state.editProducts.harga_produk;
-        let _editGambarProduk = "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg";
+    // simpanEditProduk = () => {
+    //     let _editNamaProduk = this.editNamaProduk.value ? this.editNamaProduk.value : this.state.editProducts.nama_produk;
+    //     let _editDeskripsiProduk = this.editDeskripsiProduk.value ? this.editDeskripsiProduk.value : this.state.editProducts.deskrpsi_produk;
+    //     let _editHargaProduk = parseInt(this.editHargaProduk.value) ? parseInt(this.editHargaProduk.value) : this.state.editProducts.harga_produk;
+    //     let _editGambarProduk = "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg";
 
-        // let _editGambarProduk = "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg";
+    //     // let _editGambarProduk = "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg";
         
 
-        let linkEdit = `http://localhost:2020/products/${this.state.editProducts.id}`;
-        let data = {
-            nama_produk: _editNamaProduk,
-            deskrpsi_produk: _editDeskripsiProduk,
-            harga_produk: _editHargaProduk,
-            src: _editGambarProduk
-        }
-        // Edit Data
-        axios.patch(linkEdit, data).then((res)=>{
-            this.ambilData()
-        });
-    }
+    //     let linkEdit = `http://localhost:2020/products/${this.state.editProducts.id}`;
+    //     let data = {
+    //         nama_produk: _editNamaProduk,
+    //         deskrpsi_produk: _editDeskripsiProduk,
+    //         harga_produk: _editHargaProduk,
+    //         src: _editGambarProduk
+    //     }
+    //     // Edit Data
+    //     axios.patch(linkEdit, data).then((res)=>{
+    //         this.ambilData()
+    //     });
+    // }
 
 
     // Cancel
@@ -184,7 +187,8 @@ class ManageProduct extends Component {
 
                 {/* Modal Edit */}
                 {/* toggle = {this.modalHilang} apabila ingin mengklik sembarang modal hilang */}
-                <Modal isOpen={this.state.modalEdit}>
+                {/* Modal edit apabila di 1 componnent yang sama */}
+                {/* <Modal isOpen={this.state.modalEdit}>
                     <ModalHeader>Edit Produk</ModalHeader>
                     <ModalBody>
                         Nama Produk : <input className="form-control" type="text" ref={(input) => {this.editNamaProduk = input}} placeholder={this.state.editProducts.nama_produk} />
@@ -195,7 +199,12 @@ class ManageProduct extends Component {
                         <Button outline color="success" onClick = {(this.simpanEditProduk)}>Simpan</Button>
                         <Button outline color="danger" onClick = {(this.batalEditToggle)}>Cancel</Button>
                     </ModalFooter>
-                </Modal>
+                </Modal> */}
+
+                {/* Modal edit dengan component berbeda */}
+                <ModalEdit batalEditToggle={this.batalEditToggle} modalEdit={this.state.modalEdit} editProducts={this.state.editProducts} ambilData={this.ambilData} />
+
+
 
             </div>
         )
