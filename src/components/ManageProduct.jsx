@@ -194,7 +194,7 @@ class ManageProduct extends Component {
                         Nama Produk : <input className="form-control" type="text" ref={(input) => {this.editNamaProduk = input}} placeholder={this.state.editProducts.nama_produk} />
                         Deskripsi Produk : <input className="form-control" type="text" ref={(input) => {this.editDeskripsiProduk = input}}  placeholder={this.state.editProducts.deskrpsi_produk}/>
                         Harga Produk : <input className="form-control" type="text" ref={(input) => {this.editHargaProduk = input}}  placeholder={this.state.editProducts.harga_produk}/>
-                     </ModalBody>
+                    </ModalBody>
                     <ModalFooter>
                         <Button outline color="success" onClick = {(this.simpanEditProduk)}>Simpan</Button>
                         <Button outline color="danger" onClick = {(this.batalEditToggle)}>Cancel</Button>
