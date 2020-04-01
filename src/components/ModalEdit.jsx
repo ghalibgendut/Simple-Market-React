@@ -7,7 +7,7 @@ export default class ModalEdit extends Component {
     simpanEditProduk = () => {
         let _editNamaProduk = this.editNamaProduk.value ? this.editNamaProduk.value : this.props.editProducts.nama_produk;
         let _editDeskripsiProduk = this.editDeskripsiProduk.value ? this.editDeskripsiProduk.value : this.props.editProducts.deskrpsi_produk;
-        let _editHargaProduk = parseInt(this.editHargaProduk.value) ? parseInt(this.editHargaProduk.value) : this.props.editProducts.harga_produk;
+        let _editHargaProduk = parseInt(this.editHargaProduk.value ? this.editHargaProduk.value : this.props.editProducts.harga_produk);
         let _editGambarProduk = "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg";
 
         

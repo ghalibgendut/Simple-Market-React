@@ -202,10 +202,12 @@ class ManageProduct extends Component {
                 </Modal> */}
 
                 {/* Modal edit dengan component berbeda */}
-                <ModalEdit batalEditToggle={this.batalEditToggle} modalEdit={this.state.modalEdit} editProducts={this.state.editProducts} ambilData={this.ambilData} />
-
-
-
+                <ModalEdit 
+                    batalEditToggle={this.batalEditToggle} 
+                    modalEdit={this.state.modalEdit} 
+                    editProducts={this.state.editProducts} 
+                    ambilData={this.ambilData} 
+                />
             </div>
         )
     }
