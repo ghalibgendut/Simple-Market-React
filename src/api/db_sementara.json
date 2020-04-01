@@ -78,20 +78,6 @@
       "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
       "harga_produk": 850000,
       "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
-    },
-    {
-      "nama_produk": "Strike Gundam",
-      "deskrpsi_produk": "Lorem ipsum",
-      "harga_produk": 650000,
-      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
-      "id": 6
-    },
-    {
-      "nama_produk": "Gundam Red Frame",
-      "deskrpsi_produk": "Dolor imet",
-      "harga_produk": 750000,
-      "src": "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg",
-      "id": 7
     }
   ]
 }

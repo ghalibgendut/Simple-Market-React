@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 class Home extends Component {
     state = {
@@ -21,14 +22,18 @@ class Home extends Component {
             produk.harga_produk = produk.harga_produk.toLocaleString('in');
 
             return ( 
-                <div className="card col-lg-3 col-xl-3 mx-auto mx-xl-4 my-3">
+                <div className="card col-lg-5 col-xl-3 mx-auto mx-xl-4 my-3">
                     <img className="card-img-top my-2" src={produk.src} alt="Gundam"/>
                     <div className="card-body">
-                        <h5 className="card-title">{produk.nama_produk} </h5>
+                        <div style={{height: 50}}>   
+                            <h5 className="card-title">{produk.nama_produk} </h5>
+                        </div>
                         <p className="card-text">{produk.deskrpsi_produk} </p>
                         <p className="card-text">Rp. {produk.harga_produk} </p>
                         <input  className="form-control" type="text" placeholder="Jumlah QTY" />
-                        <button className="btn btn-block btn-outline-primary my-2" >Detail</button>
+                        <Link to={`/DetailProduk/${produk.id}`}>
+                            <button className="btn btn-block btn-outline-primary my-2" >Detail</button>
+                        </Link>
                         <button className="btn btn-block btn-outline-success" >Add to Chart</button>
                     </div>
                 </div>

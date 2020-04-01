@@ -33,9 +33,9 @@ export default class ModalEdit extends Component {
                 <Modal isOpen={this.props.modalEdit}>
                     <ModalHeader>Edit Produk</ModalHeader>
                     <ModalBody>
-                        Nama Produk : <input className="form-control" type="text" ref={(input) => {this.editNamaProduk = input}} placeholder={this.props.editProducts.nama_produk} />
+                        Nama Produk      : <input className="form-control" type="text" ref={(input) => {this.editNamaProduk = input}} placeholder={this.props.editProducts.nama_produk} />
                         Deskripsi Produk : <input className="form-control" type="text" ref={(input) => {this.editDeskripsiProduk = input}}  placeholder={this.props.editProducts.deskrpsi_produk}/>
-                        Harga Produk : <input className="form-control" type="text" ref={(input) => {this.editHargaProduk = input}}  placeholder={this.props.editProducts.harga_produk}/>
+                        Harga Produk     : <input className="form-control" type="text" ref={(input) => {this.editHargaProduk = input}}  placeholder={this.props.editProducts.harga_produk}/>
                     </ModalBody>
                     <ModalFooter>
                         <Button outline color="success" onClick = {this.simpanEditProduk}>Simpan</Button>
