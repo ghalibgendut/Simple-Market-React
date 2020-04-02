@@ -51,41 +51,42 @@ class Home extends Component {
             let keyword = this.nama_barang.value
             let harga_min = parseInt(this.min.value)
             let harga_max = parseInt(this.max.value)
+            let filterResult = []
 
-            // let filterResult = res.data.filter((produk)=>{
-            //     return (
-            //         produk.nama_produk.toLowerCase().includes(keyword.toLowerCase())
-            //     )
-            // })
-
-            // Cari Berdasarkan harga terndah
-            if (isNaN(harga_max)) {
-                // console.log('Filter Berdasarkan nilai minimal');
-                var filterResult = res.data.filter((harga)=>{
+            // cari berdasarkan nama
+            if (isNaN(harga_min) && isNaN(harga_max)) {
+                filterResult = res.data.filter((data)=>{
                     return (
-                        harga.harga_produk >= harga_min
+                        data.nama_produk.toLowerCase().includes(keyword.toLocaleLowerCase())
                     )
-                })           
-            }    
-
-            // Cari Berdasarkan harga tertinggi
-            else if (isNaN(harga_min)) {
-                // console.log("Filter berdasarkan nilai maksimal");
-                var filterResult = res.data.filter((harga)=>{
-                    return (
-                        harga.harga_produk <= harga_max
-                    )
-                })  
+                })
             }
-
-            else {
-                // console.log("Filter berdasarkan minimal dan maksimal");
-                var filterResult = res.data.filter((data)=>{
+            // Cari berdasarkan harga minimal
+            else if (isNaN(harga_max)) {
+                filterResult = res.data.filter((data)=>{
                     return (
-                        data.harga_produk >= harga_min && data.harga_produk <= harga_max && data.nama_produk.toLowerCase().includes(keyword.toLowerCase())
+                        data.nama_produk.toLowerCase().includes(keyword.toLocaleLowerCase()) &&
+                        data.harga_produk >= harga_min
                     )
-                })  
-                
+                })
+            }
+            // Cari berdasarkan harga maksimal
+            else if (isNaN(harga_min)) {
+                filterResult = res.data.filter((data)=>{
+                    return (
+                        data.nama_produk.toLowerCase().includes(keyword.toLocaleLowerCase()) &&
+                        data.harga_produk <= harga_max
+                    )
+                })
+            }
+            else {
+                filterResult = res.data.filter((data)=>{
+                    return (
+                        data.nama_produk.toLowerCase().includes(keyword.toLocaleLowerCase()) &&
+                        data.harga_produk <= harga_max &&
+                        data.harga_produk >= harga_min
+                    )
+                })
             }
 
             this.setState({ produk: filterResult})
@@ -118,7 +119,7 @@ class Home extends Component {
                                     <input ref={ (input) => { this.max = input } } type="text" placeholder="Maksimal" className="form-control" />
 
                                     <button onClick={this.onBtnSearch} className="btn btn-block btn-outline-primary my-2">Search</button>
-                                    <button className="btn btn-block btn-outline-danger">Reset</button>
+                                    <button onClick={this.ambilDataProduk} className="btn btn-block btn-outline-danger">Reset</button>
                                 </div>  
                             </div>
                         </div>
