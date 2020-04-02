@@ -93,6 +93,10 @@ class Home extends Component {
         })
     }
 
+    onResetButton = () => {
+        this.ambilDataProduk();
+    }
+
 
 
 
@@ -119,7 +123,7 @@ class Home extends Component {
                                     <input ref={ (input) => { this.max = input } } type="text" placeholder="Maksimal" className="form-control" />
 
                                     <button onClick={this.onBtnSearch} className="btn btn-block btn-outline-primary my-2">Search</button>
-                                    <button onClick={this.ambilDataProduk} className="btn btn-block btn-outline-danger">Reset</button>
+                                    <button onClick={this.onResetButton} className="btn btn-block btn-outline-danger">Reset</button>
                                 </div>  
                             </div>
                         </div>
