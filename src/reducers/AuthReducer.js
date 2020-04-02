@@ -43,7 +43,7 @@ let init = {
 export default (state = init, action) => {
     switch (action.type) {
         case 'LOGIN_SUCCESS':
-           return {...state, id: action.payload.id, username: action.payload.username}
+            return {...state, id: action.payload.id, username: action.payload.username}
             
             break;
         case 'LOGOUT_SUCCESS':

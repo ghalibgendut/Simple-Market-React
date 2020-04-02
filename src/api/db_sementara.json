@@ -46,7 +46,7 @@
   "products": [
     {
       "id": 1,
-      "nama_produk": "Gundam 1",
+      "nama_produk": "Gundam Red Frame",
       "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
       "harga_produk": 150000,
       "src": "https://previews.123rf.com/images/amnachphoto/amnachphoto1710/amnachphoto171000028/87374433-bangkok-thailand-october-11-2017-gundam-model-scale-1-100-produced-by-bandai-japan-gundam-plastic-mo.jpg"
@@ -78,6 +78,20 @@
       "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
       "harga_produk": 850000,
       "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "produkId": 2,
+      "username": "Dummy01",
+      "nama_produk_beli": "Gundam 2",
+      "qty": 2
+    },
+    {
+      "produkId": 1,
+      "username": "Dummy01",
+      "nama_produk_beli": "Gundam 1",
+      "qty": 3
     }
   ]
 }

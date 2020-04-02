@@ -126,7 +126,7 @@ class ManageProduct extends Component {
         return this.state.products.map((produk) => {
             produk.harga_produk = produk.harga_produk.toLocaleString('id');
             return (
-                <tr>
+                <tr key={produk.id}>
                     <td>{produk.id}</td>
                     <td>{produk.nama_produk}</td>
                     <td>{produk.deskrpsi_produk}</td>

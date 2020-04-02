@@ -59,11 +59,11 @@ class Header extends Component {
                     </DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem>
-                            Option 1
-                    </DropdownItem>
+                            <NavLink tag={Link} to="/ManageProduk">Manage Product</NavLink>
+                        </DropdownItem>
                         <DropdownItem>
-                            Option 2
-                    </DropdownItem>
+                            <NavLink tag={Link} to="/">Cart</NavLink>
+                        </DropdownItem>
                         <DropdownItem divider />
                         <DropdownItem onClick = {this.props.onLogoutUser}>
                             Logout
