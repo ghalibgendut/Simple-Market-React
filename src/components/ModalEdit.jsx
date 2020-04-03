@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import axios from 'axios';
+import axios from '../config/axios';
+import Swal from 'sweetalert2';
 
 export default class ModalEdit extends Component {
 
@@ -12,7 +13,7 @@ export default class ModalEdit extends Component {
 
         
 
-        let linkEdit = `http://localhost:2020/products/${this.props.editProducts.id}`;
+        let linkEdit = `/products/${this.props.editProducts.id}`;
         let data = {
             nama_produk: _editNamaProduk,
             deskrpsi_produk: _editDeskripsiProduk,
@@ -21,6 +22,11 @@ export default class ModalEdit extends Component {
         }
         // Edit Data
         axios.patch(linkEdit, data).then((res)=>{
+            Swal.fire(
+                'Berhasil !',
+                'Data Produk Berhasil di Ubah.',
+                'success'
+            )
             this.props.ambilData()
         });
     }

@@ -66,7 +66,7 @@ class Header extends Component {
                         </DropdownItem>
                         <DropdownItem divider />
                         <DropdownItem onClick = {this.props.onLogoutUser}>
-                            Logout
+                            <NavLink tag={Link} to="/">Logout</NavLink>
                         </DropdownItem>
                     </DropdownMenu>
                 </UncontrolledDropdown>

@@ -41,6 +41,18 @@
       "email": "dumm_01@gmail.com",
       "pass": "dummy01",
       "id": 7
+    },
+    {
+      "username": "Dummy06",
+      "email": "dummy06@gmail.com",
+      "pass": "123456789",
+      "id": 8
+    },
+    {
+      "username": "Dummy07",
+      "email": "dumm_07@gmail.com",
+      "pass": "dummy01",
+      "id": 9
     }
   ],
   "products": [
@@ -73,11 +85,11 @@
       "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
     },
     {
-      "id": 5,
-      "nama_produk": "Gundam 5",
-      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+      "nama_produk": "Strike Gundam",
+      "deskrpsi_produk": "Lorem ipsum dolor sit amet consectetur adipisicing.\t",
       "harga_produk": 850000,
-      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg"
+      "src": "https://cdn.shoplightspeed.com/shops/609450/files/8224665/image.jpg",
+      "id": 5
     }
   ],
   "cart": [

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../config/axios';
 import {onLoginUser} from '../actions/index_actions';
 import { connect } from 'react-redux';
+import Swal from 'sweetalert2';
 
 // Akan me-redirect ke alamat tertentu
 import {Redirect} from 'react-router-dom';
@@ -15,7 +16,7 @@ class Login extends Component {
 
         // Get data dengan parameter
 
-        let linkGet = 'http://localhost:2020/users';
+        let linkGet = '/users';
         let data = {username: _username, pass: _pass}
 
         axios.get(linkGet, {params: data}).then((res)=> {
@@ -30,7 +31,11 @@ class Login extends Component {
             }
             else{
                 // user tidak ditemukan : memuncuklan notif
-                alert(`username atau password salah`)
+                Swal.fire(
+                    'Oops...!',
+                    'Username atau Password Salah !.',
+                    'error'
+                )
                 
             }
         })

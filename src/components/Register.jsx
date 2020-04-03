@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../config/axios';
+import Swal from 'sweetalert2';
+import {onLoginUser} from '../actions/index_actions';
+import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 
 class Register extends Component {
@@ -14,8 +18,8 @@ class Register extends Component {
 
         // Simpan di json
         // GET, POST, PUT, PATCH
-        let linkPost = 'http://localhost:2020/users';
-        let linkGet = 'http://localhost:2020/users';
+        let linkPost = '/users';
+        let linkGet = '/users';
         let data = { username, email, pass }
 
         // console.log(data);
@@ -37,7 +41,11 @@ class Register extends Component {
 
             // console.log(sudahAdaUsername);
             if (sudahAdaUsername.length > 0) {
-                return alert(`Username ${username} Sudah Terpakai`);
+                return Swal.fire(
+                    'Oops...!',
+                    `Username : ${username} Sudah terpakai`,
+                    'error'
+                )
             }
 
 
@@ -46,13 +54,21 @@ class Register extends Component {
             })
             // console.log(sudahAdaEmail);
             if (sudahAdaEmail.length > 0) {
-                return alert(`Email ${email} Sudah Terpakai`);
+                return Swal.fire(
+                    'Oops...!',
+                    `Email : ${email} Sudah terpakai`,
+                    'error'
+                )
             }
 
             // POST
             axios.post(linkPost, data).then((res) => { 
             
-                alert('Registrasi Berhasil');
+                Swal.fire(
+                    'Berhasil !',
+                    'Data Anda Berhasil ditambah',
+                    'success'
+                )
             })
         })
 
@@ -71,42 +87,53 @@ class Register extends Component {
 
 
     render() {
-        return (
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-5 mx-auto mt-5 card">
-                        <div className="card-body">
-                            <div className="border-bottom border-secondary card-title text-center">
-                                <h1>Register</h1>
+        if (!this.props.uname) {
+            return (
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-5 mx-auto mt-5 card">
+                            <div className="card-body">
+                                <div className="border-bottom border-secondary card-title text-center">
+                                    <h1>Register</h1>
+                                </div>
+    
+                                <form className="form-group">
+                                    <div className="card-title">
+                                        <h4>Username</h4>
+                                    </div>
+                                    <input ref={(input) => { this.username = input }} type="text" className="form-control" />
+    
+                                    <div className="card-title" >
+                                        <h4>Email</h4>
+                                    </div>
+                                    <input ref={(input) => { this.email = input }} type="email" className="form-control" />
+    
+                                    <div className="card-title">
+                                        <h4>Password</h4>
+                                    </div>
+                                    <input ref={(input) => { this.password = input }} type="password" className="form-control" />
+                                </form>
+    
+                                <button className="btn btn-success btn-block" onClick={(this.onButtonClick)} >Register</button>
+                                {/* GET */}
+                                {/* <button className="btn btn-success btn-block" onClick={(this.onGetClick)} >Get Data</button> */}
                             </div>
-
-                            <form className="form-group">
-                                <div className="card-title">
-                                    <h4>Username</h4>
-                                </div>
-                                <input ref={(input) => { this.username = input }} type="text" className="form-control" />
-
-                                <div className="card-title" >
-                                    <h4>Email</h4>
-                                </div>
-                                <input ref={(input) => { this.email = input }} type="email" className="form-control" />
-
-                                <div className="card-title">
-                                    <h4>Password</h4>
-                                </div>
-                                <input ref={(input) => { this.password = input }} type="password" className="form-control" />
-                            </form>
-
-                            <button className="btn btn-success btn-block" onClick={(this.onButtonClick)} >Register</button>
-                            {/* GET */}
-                            {/* <button className="btn btn-success btn-block" onClick={(this.onGetClick)} >Get Data</button> */}
                         </div>
                     </div>
                 </div>
-            </div>
-
-        )
+    
+            )
+        }
+        else{
+            return <Redirect to="/"/>
+        }
     }
 }
 
-export default Register
+let mapStateToProps = (state) => {
+    return {
+        uname: state.auth.username
+    }
+}
+
+export default connect(mapStateToProps, {onLoginUser})(Register)

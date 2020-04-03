@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import axios from '../config/axios';
 
 
 
@@ -11,7 +11,7 @@ export default class DetailProduk extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:2020/products/${this.props.match.params.idProduk}`)
+        axios.get(`/products/${this.props.match.params.idProduk}`)
             .then((res) => {
                 this.setState({produk : res.data})
             })
