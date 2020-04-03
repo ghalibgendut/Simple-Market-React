@@ -18,6 +18,10 @@ import {connect} from 'react-redux'
 
 class App extends Component {
 
+    state = {
+        cekStatus : false
+    }
+    
     componentDidMount(){
         // Dapat ditulis seperti ini
         let resUser = localStorage.getItem('userData')
@@ -29,23 +33,27 @@ class App extends Component {
         if (user) {
             this.props.onLoginUser(user)
         }
-
+        this.setState({check: true})
     }
 
 
     render() {
-        return (
-            <BrowserRouter>
-                <div>
-                    <Header/>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/register" component={Register} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/ManageProduk" component={ManageProduct} />
-                    <Route path="/DetailProduk/:idProduk" component={DetailProduk} />
-                </div>
-            </BrowserRouter>   
-        )
+        if (this.state.cekStatus) {
+            return (
+                <BrowserRouter>
+                    <div>
+                        <Header/>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/register" component={Register} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/ManageProduk" component={ManageProduct} />
+                        <Route path="/DetailProduk/:idProduk" component={DetailProduk} />
+                    </div>
+                </BrowserRouter>   
+            )
+        }
+        
+        return <h1> Loading </h1>
     }
 
 }
