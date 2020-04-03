@@ -18,9 +18,9 @@ import {connect} from 'react-redux'
 
 class App extends Component {
 
-    state = {
-        cekStatus : false
-    }
+    // state = {
+    //     cekStatus : false
+    // }
     
     componentDidMount(){
         // Dapat ditulis seperti ini
@@ -33,12 +33,12 @@ class App extends Component {
         if (user) {
             this.props.onLoginUser(user)
         }
-        this.setState({check: true})
+        // this.setState({check: true})
     }
 
 
     render() {
-        if (this.state.cekStatus) {
+        // if (this.state.cekStatus) {
             return (
                 <BrowserRouter>
                     <div>
@@ -51,9 +51,7 @@ class App extends Component {
                     </div>
                 </BrowserRouter>   
             )
-        }
-        
-        return <h1> Loading </h1>
+        // }
     }
 
 }
