@@ -50,8 +50,8 @@ class Login extends Component {
     render() {
         if (!this.props.uname) { // Juka Belum login 
             return (
-                <div>
-                    <div className="container-fluid">
+                
+                <div className="container-fluid my-auto">
                     <div className="row">
                         <div className="col-5 mx-auto mt-5 card">
                             <div className="card-body">
@@ -77,7 +77,6 @@ class Login extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
             )
         }
